@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{# This is the base template that all other templates inherit from #}
+{# Think of it as a skeleton that all pages share (nav, footer, etc.) #}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# block title is a placeholder that child templates can override #}
+    {# Each page can have its own title (Home, Projects, etc.) #}
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    {# Link to the CSS stylesheet that styles the entire website #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {# Navigation bar - appears on every page #}
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                {# Link back to home page #}
+                <a href="{{ url_for('index') }}">My Portfolio</a>
+            </div>
+            {# Navigation links to different pages #}
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {# This is where the page-specific content goes #}
+    {# block content is a placeholder that each page fills in #}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {# Footer - appears on every page #}
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            {# Social media links #}
+            <div class="social-links">
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    {# Load JavaScript file for interactivity (form handling, animations, etc.) #}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
