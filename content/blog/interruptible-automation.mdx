@@ -1,0 +1,41 @@
+---
+title: Designing input automation that remains interruptible
+slug: interruptible-automation
+date: 2026-02-02
+tags:
+  - Python
+  - Automation
+summary: Event loops, global listeners, and why a reliable stop mechanism is part of the core design.
+coverImage: /images/blog/automation-cover.svg
+---
+
+Automation is only useful while the operator remains in control. That sounds obvious, but input utilities often put the work loop and the control mechanism in the same blocking path.
+
+## Separate control from work
+
+The listener should update a small state object. The worker should read that state before every action.
+
+```python title="state.py"
+from dataclasses import dataclass
+
+@dataclass
+class AutomationState:
+    is_active: bool = False
+    should_exit: bool = False
+```
+
+This creates a clear contract:
+
+- listeners update intent;
+- the worker performs actions;
+- both paths share only minimal state.
+
+<Callout title="Rule of thumb">
+If the user presses stop, the next expensive action should not begin.
+</Callout>
+
+## Avoid busy waiting
+
+A paused loop still needs a short sleep. Without one, the process repeatedly checks the same condition and consumes unnecessary CPU.
+
+The exact interval is a trade-off between responsiveness and idle work. For a desktop utility, a small delay is generally enough to feel immediate.

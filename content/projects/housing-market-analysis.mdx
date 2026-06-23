@@ -1,0 +1,49 @@
+---
+title: Housing Market Analysis
+slug: housing-market-analysis
+description: An exploratory analysis workflow that turns housing records into clear market-level observations.
+date: 2025-10-02
+status: Complete
+featured: false
+coverImage: /images/projects/housing-analysis-cover.svg
+technologies:
+  - Jupyter
+  - pandas
+  - Matplotlib
+  - Seaborn
+---
+
+## Analytical goal
+
+Housing datasets are dense, and it is easy to produce many charts without producing much understanding. This analysis was organized around a sequence of questions rather than a sequence of plotting functions.
+
+## Questions
+
+1. How is price distributed?
+2. Which features show the strongest relationships with price?
+3. Where do missing values or outliers affect interpretation?
+4. Which observations are descriptive, and which would need further evidence?
+
+<ImageGallery
+  columns={2}
+  images={[
+    {
+      src: "/images/projects/housing-analysis-cover.svg",
+      alt: "Housing market dashboard",
+      caption: "Market-level summary",
+    },
+    {
+      src: "/images/projects/housing-model-cover.svg",
+      alt: "Model evaluation chart",
+      caption: "A related modelling view",
+    },
+  ]}
+/>
+
+## Reproducibility
+
+Cleaning and transformation steps were kept near the visualizations they support, with clear intermediate tables. That makes it possible to inspect how each chart was produced instead of treating the notebook as a black box.
+
+<Callout title="Reporting boundary">
+Exploratory relationships are useful evidence, but they are not causal claims. The write-up keeps those two ideas separate.
+</Callout>

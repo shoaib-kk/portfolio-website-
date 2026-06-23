@@ -1,0 +1,57 @@
+---
+title: Movie Recommender
+slug: movie-recommender
+description: A recommendation engine that combines behavioural similarity with movie metadata.
+date: 2025-11-18
+status: Complete
+featured: true
+coverImage: /images/projects/movie-recommender-cover.svg
+technologies:
+  - Python
+  - pandas
+  - Machine Learning
+---
+
+## Problem framing
+
+Large catalogues create choice overload. Popularity lists are easy to build, but they treat every viewer as if they had the same taste.
+
+This project explores a hybrid ranking approach that combines:
+
+- collaborative signals from similar behaviour;
+- content signals from movie metadata;
+- a fallback strategy for sparse user histories.
+
+## Ranking pipeline
+
+<ArchitectureDiagram
+  src="/images/projects/recommender-architecture.svg"
+  alt="Collaborative and content features merging into a ranking stage"
+  caption="Independent relevance signals are normalized before the final ranking step."
+/>
+
+```python title="rank.py"
+def hybrid_score(collaborative, content, history_size):
+    confidence = min(history_size / 20, 1)
+    collaborative_weight = 0.65 * confidence
+    content_weight = 1 - collaborative_weight
+
+    return (
+        collaborative * collaborative_weight
+        + content * content_weight
+    )
+```
+
+## Cold-start behaviour
+
+When history is limited, the ranking gives more weight to content similarity. As interaction data grows, collaborative signals become more useful.
+
+| User state | Primary signal | Fallback |
+| --- | --- | --- |
+| New user | Selected genres and titles | Popular items within preferences |
+| Sparse history | Content similarity | Broad collaborative neighbours |
+| Established history | Collaborative similarity | Content diversity |
+
+## Outcome
+
+The project demonstrates that recommendation quality is not only a modelling question. Product behaviour for missing data, ties, and low-confidence results matters just as much.

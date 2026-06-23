@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="768" viewBox="0 0 1280 768">
+  <rect width="1280" height="768" fill="#0d0d0f"/>
+  <path d="M0 96h1280M0 192h1280M0 288h1280M0 384h1280M0 480h1280M0 576h1280M0 672h1280M96 0v768M192 0v768M288 0v768M384 0v768M480 0v768M576 0v768M672 0v768M768 0v768M864 0v768M960 0v768M1056 0v768M1152 0v768" stroke="#27272a"/>
+  <rect x="188" y="132" width="904" height="504" rx="14" fill="#111113" stroke="#3f3f46"/>
+  <path d="M188 196h904" stroke="#27272a"/>
+  <circle cx="224" cy="164" r="7" fill="#3f3f46"/><circle cx="248" cy="164" r="7" fill="#3f3f46"/><circle cx="272" cy="164" r="7" fill="#3f3f46"/>
+  <text x="300" y="170" fill="#71717a" font-family="monospace" font-size="16">automation.py</text>
+  <text x="244" y="278" fill="#5ee0b7" font-family="monospace" font-size="22">$</text>
+  <text x="276" y="278" fill="#fafafa" font-family="monospace" font-size="22">python automation.py</text>
+  <text x="244" y="342" fill="#71717a" font-family="monospace" font-size="20">Listener ready. Press F8 to start.</text>
+  <circle cx="254" cy="411" r="9" fill="#5ee0b7"/>
+  <text x="280" y="418" fill="#fafafa" font-family="monospace" font-size="22">Running</text>
+  <text x="826" y="418" fill="#71717a" font-family="monospace" font-size="18">interval: 1.64s</text>
+  <text x="244" y="486" fill="#71717a" font-family="monospace" font-size="20">12 clicks · press F8 to pause</text>
+</svg>

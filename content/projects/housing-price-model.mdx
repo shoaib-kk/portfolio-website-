@@ -1,0 +1,61 @@
+---
+title: Housing Price Model
+slug: housing-price-model
+description: A reproducible regression workflow for estimating housing values from structured market data.
+date: 2025-12-08
+status: Complete
+featured: true
+coverImage: /images/projects/housing-model-cover.svg
+technologies:
+  - Python
+  - scikit-learn
+  - pandas
+  - NumPy
+---
+
+## Why this project exists
+
+Raw housing records contain useful signals, but those signals are difficult to interpret until cleaning, feature preparation, training, and evaluation are treated as one reproducible system.
+
+The project asks a focused question: **can a baseline regression model produce a useful estimate without hiding uncertainty or leaking evaluation data?**
+
+## Workflow
+
+<ProjectImage
+  src="/images/projects/housing-model-cover.svg"
+  alt="Regression evaluation interface showing predicted and actual values"
+  caption="A compact evaluation view keeps model quality and residual behaviour visible."
+/>
+
+1. Inspect missing and malformed values.
+2. Separate training and evaluation data.
+3. Fit transformations using training data only.
+4. Train a baseline regression model.
+5. Review error metrics and residual plots together.
+
+```python title="train_model.py"
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LinearRegression
+
+pipeline = Pipeline([
+    ("prepare", ColumnTransformer([
+        ("numeric", SimpleImputer(strategy="median"), numeric_columns),
+    ])),
+    ("model", LinearRegression()),
+])
+
+pipeline.fit(X_train, y_train)
+predictions = pipeline.predict(X_test)
+```
+
+<Callout title="Evaluation principle">
+A single score cannot explain where a model fails. Aggregate metrics should be read alongside residual distributions and representative examples.
+</Callout>
+
+## What I learned
+
+- Preprocessing belongs inside the model pipeline.
+- A modest baseline is valuable because it creates a trustworthy comparison point.
+- Error analysis often reveals more actionable information than another round of parameter tuning.

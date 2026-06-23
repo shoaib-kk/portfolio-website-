@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="768" viewBox="0 0 1280 768">
+  <rect width="1280" height="768" fill="#0d0d0f"/>
+  <rect x="150" y="100" width="980" height="568" rx="14" fill="#111113" stroke="#3f3f46"/>
+  <path d="M150 164h980" stroke="#27272a"/>
+  <circle cx="184" cy="132" r="7" fill="#3f3f46"/><circle cx="208" cy="132" r="7" fill="#3f3f46"/><circle cx="232" cy="132" r="7" fill="#3f3f46"/>
+  <text x="270" y="139" fill="#71717a" font-family="monospace" font-size="15">model_evaluation.ipynb</text>
+  <text x="212" y="228" fill="#fafafa" font-family="Inter,Arial" font-size="24">Predicted vs. actual</text>
+  <path d="M230 580V270M230 580h820" stroke="#3f3f46"/>
+  <path d="M280 540 1000 300" stroke="#5ee0b7" stroke-width="3"/>
+  <g fill="#111113" stroke="#5ee0b7" stroke-width="2">
+    <circle cx="300" cy="515" r="7"/><circle cx="350" cy="500" r="7"/><circle cx="410" cy="460" r="7"/><circle cx="470" cy="472" r="7"/><circle cx="530" cy="415" r="7"/><circle cx="590" cy="420" r="7"/><circle cx="650" cy="390" r="7"/><circle cx="710" cy="352" r="7"/><circle cx="770" cy="370" r="7"/><circle cx="830" cy="320" r="7"/><circle cx="900" cy="338" r="7"/><circle cx="970" cy="290" r="7"/>
+  </g>
+</svg>

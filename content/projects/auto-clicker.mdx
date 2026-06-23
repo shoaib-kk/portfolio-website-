@@ -1,0 +1,64 @@
+---
+title: Auto Clicker
+slug: auto-clicker
+description: A keyboard-controlled automation utility for repetitive mouse input across desktop applications.
+date: 2026-01-12
+status: Complete
+featured: true
+coverImage: /images/projects/auto-clicker-cover.svg
+technologies:
+  - Python
+  - PyAutoGUI
+  - pynput
+---
+
+## The problem
+
+Repeated manual clicking is slow, inconsistent, and disruptive. The goal was to build a small desktop utility that could run across applications while remaining easy to start, pause, and stop.
+
+<Callout title="Design constraint">
+The stop control had to remain responsive even while the click loop was active. An automation tool that cannot be interrupted safely is not useful.
+</Callout>
+
+## Architecture
+
+<ArchitectureDiagram
+  src="/images/projects/auto-clicker-architecture.svg"
+  alt="Keyboard listener updates shared state consumed by a controlled click loop"
+  caption="The input listener and click loop remain separate so global controls stay responsive."
+/>
+
+The application separates input handling from the work loop:
+
+1. A global keyboard listener watches for the toggle key.
+2. Shared state records whether automation is active.
+3. The click loop reads that state before every action.
+4. A randomized delay prevents perfectly uniform timing.
+
+```python title="automation.py"
+from random import uniform
+from time import sleep
+
+def run_click_loop(state, click):
+    while not state.should_exit:
+        if state.is_active:
+            click()
+            sleep(uniform(1.0, 2.0))
+        else:
+            sleep(0.05)
+```
+
+## Engineering decisions
+
+| Decision | Reason |
+| --- | --- |
+| Global hotkey | Controls remain available regardless of the focused application |
+| Short idle sleep | Avoids a CPU-intensive busy loop while paused |
+| Random interval | Produces less mechanical timing than a fixed delay |
+| Explicit exit state | Makes shutdown behavior predictable |
+
+> Reliability here is mostly about control: the user should always understand whether the utility is idle, running, or stopping.
+
+## Result
+
+The final utility keeps the interaction model intentionally small: one control to toggle the process and a clear path to exit. The project was a practical exercise in event-driven state, global input handling, and safe automation.

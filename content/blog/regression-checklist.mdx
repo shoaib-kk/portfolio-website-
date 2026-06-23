@@ -1,0 +1,39 @@
+---
+title: A practical checklist for regression experiments
+slug: regression-experiment-checklist
+date: 2026-01-20
+tags:
+  - Machine Learning
+  - Python
+summary: A concise workflow for separating preprocessing, training, and evaluation without data leakage.
+coverImage: /images/blog/regression-cover.svg
+---
+
+Regression experiments become unreliable when transformations learn from the full dataset. The safest default is to make preprocessing part of the model pipeline.
+
+## Before training
+
+1. Define the target and the unit of prediction.
+2. Choose the evaluation split before fitting transformations.
+3. Record a simple baseline.
+4. Decide which errors matter in the intended use case.
+
+## During training
+
+```python title="pipeline.py"
+pipeline.fit(X_train, y_train)
+validation_predictions = pipeline.predict(X_validation)
+```
+
+Do not fit imputers, encoders, or scalers on `X_validation`.
+
+## During evaluation
+
+| Check | Question |
+| --- | --- |
+| Aggregate error | How large is a typical mistake? |
+| Residual shape | Does error change across the target range? |
+| Examples | What do the largest misses have in common? |
+| Stability | Does performance change materially across splits? |
+
+> A model is not understood until its failure pattern is understood.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#0d0d0f"/>
+  <rect x="170" y="120" width="860" height="460" rx="14" fill="#111113" stroke="#3f3f46"/>
+  <text x="230" y="210" fill="#71717a" font-family="monospace" font-size="18">automation state</text>
+  <circle cx="258" cy="315" r="18" fill="#5ee0b7"/>
+  <text x="300" y="323" fill="#fafafa" font-family="Inter,Arial" font-size="28">Interruptible by design</text>
+  <path d="M230 390h740M230 455h520" stroke="#27272a" stroke-width="18"/>
+  <path d="M230 390h480M230 455h320" stroke="#3f3f46" stroke-width="18"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#0d0d0f"/>
+  <path d="M180 560V130M180 560h850" stroke="#3f3f46"/>
+  <path d="M230 515 980 190" stroke="#5ee0b7" stroke-width="4"/>
+  <g fill="#111113" stroke="#5ee0b7" stroke-width="3"><circle cx="260" cy="490" r="9"/><circle cx="360" cy="470" r="9"/><circle cx="455" cy="398" r="9"/><circle cx="545" cy="410" r="9"/><circle cx="650" cy="322" r="9"/><circle cx="760" cy="310" r="9"/><circle cx="855" cy="238" r="9"/><circle cx="950" cy="220" r="9"/></g>
+  <text x="180" y="90" fill="#fafafa" font-family="Inter,Arial" font-size="34">A reliable regression workflow</text>
+</svg>

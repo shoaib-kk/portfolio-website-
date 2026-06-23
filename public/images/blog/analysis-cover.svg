@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#0d0d0f"/>
+  <text x="150" y="130" fill="#71717a" font-family="monospace" font-size="18">QUESTION → EVIDENCE → LIMITATION</text>
+  <g fill="#161618" stroke="#3f3f46">
+    <rect x="150" y="205" width="260" height="250" rx="12"/><rect x="470" y="205" width="260" height="250" rx="12"/><rect x="790" y="205" width="260" height="250" rx="12"/>
+  </g>
+  <g fill="#5ee0b7" font-family="monospace" font-size="18"><text x="184" y="254">01</text><text x="504" y="254">02</text><text x="824" y="254">03</text></g>
+  <g fill="#fafafa" font-family="Inter,Arial" font-size="25"><text x="184" y="320">Ask clearly</text><text x="504" y="320">Show evidence</text><text x="824" y="320">State limits</text></g>
+  <g stroke="#27272a" stroke-width="14"><path d="M184 370h170"/><path d="M504 370h170"/><path d="M824 370h170"/></g>
+</svg>
